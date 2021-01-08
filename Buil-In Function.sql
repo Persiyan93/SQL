@@ -85,6 +85,10 @@ WHERE LEN(CountryName)-LEN(REPLACE(CountryName,'A',''))=3
 ORDER BY IsoCode
 	
 --Task 13
+SELECT  p.PeakName ,r.RiverName,LOWER(CONCAT(p.PeakName,r.RiverName)) AS MIX FROM  Peaks AS p
+CROSS JOIN  Rivers AS r
+WHERE SUBSTRING(p.PeakName,LEN(p.PeakNAme),1)=LEFT(r.RiverName,1)
+ORDER BY p.PeakName
 
 
  --TASK 14
@@ -104,9 +108,16 @@ ORDER BY IsoCode
  ORDER BY Username
 
  --TASK 17
- 
-  SELECT [Name] AS p FROM Games 
+ BEGIN
+SELECT (SELECT IF g.Duration<=3 
+PRINT 'OK ' ;)
+FROM Games AS g
   
 
-	
+
+--TASK 18
+SELECT ProductName ,
+DATEADD(DAY,3,OrderDate) AS [Pay Due],
+DATEADD(MONTH,1,OrderDate) AS [Deliver Due]
+FROM Orders
  

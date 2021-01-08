@@ -83,6 +83,30 @@ SELECT [EmployeeID]
 SELECT [CountryName] , IsoCode FROM Countries
 WHERE LEN(CountryName)-LEN(REPLACE(CountryName,'A',''))=3
 ORDER BY IsoCode
+	
+--Task 13
 
 
+ --TASK 14
+ SELECT TOP(50) [Name] ,FORMAT(Start,'yyyy-MM--dd') FROM Games
+ WHERE DATEPART(YEAR,Start)>=2011 AND DATEPART(YEAR,Start)<=2012 
+ ORDER BY Start ,Name
+
+
+ --TASK 15
+ SELECT [UserName],Email ,SUBSTRING(Email,(CHARINDEX('@',Email)+1),LEN(Email))AS [Email Provider] 
+ FROM Users
+ ORDER BY [Email Provider] ,Username
+
+ --TASK 16
+ SELECT Username ,IpAddress FROM Users
+ WHERE IpAddress LIKE '___.1_%._%.___'
+ ORDER BY Username
+
+ --TASK 17
+ 
+  SELECT [Name] AS p FROM Games 
+  
+
+	
  

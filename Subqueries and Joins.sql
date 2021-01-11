@@ -52,7 +52,11 @@ WHERE e.DepartmentID IN
 
 --TASK 8   !!!!!!!!!!!!!!!!!!!!!
 
- SELECT  e.EmployeeID , e.FirstName,p.Name FROM Employees AS e
+ SELECT  e.EmployeeID , e.FirstName ,
+	CASE
+		WHEN DATEPART(YEAR,p.StartDate)>=2005 THEN NULL
+		ELSE p.Name END AS [ProjectName	]
+ FROM Employees AS e
 	JOIN  EmployeesProjects AS ep ON
 		e.EmployeeID = ep.EmployeeID
 	JOIN Projects AS p ON
@@ -79,5 +83,52 @@ SELECT TOP (50)  e.EmployeeID,e.FirstName+' '+e.LastName AS EmploeyeeName  ,
 	ORDER BY EmployeeID
 
 --TASK 11
+SELECT MIN(a.AverageSalary) AS MinAverageSalary FROM
+	(SELECT AVG(e.Salary) AS AverageSalary FROM Employees AS e
+	GROUP BY e.DepartmentID) AS a
+
+--TASK 12
+
+SELECT c.CountryCode AS CountryCode ,m.MountainRange AS  MountainRange,
+p.Elevation  FROM Peaks as p
+	JOIN Mountains AS m ON 
+		p.MountainId=m.Id
+	JOIN MountainsCountries AS c ON
+		m.Id=c.MountainId
+	WHERE p.Elevation>2835 AND c.CountryCode='BG'
+	ORDER BY p.Elevation DESC
+
+-- TASK 13
+SELECT c.CountryCode ,COUNT(m.MountainRange) AS MountainRanges FROM Mountains AS m
+JOIN MountainsCountries AS c ON
+m.Id= c.MountainId
+WHERE c.CountryCode='BG' OR c.CountryCode='RU' OR  c.CountryCode='US'
+GROUP BY (c.CountryCode)
+ORDER BY MountainRanges DESC
+
+--TASK 14!!!!!!!!!!!!!!!!!!!!!1
+SELECT TOP(5) cn.     FROM(
+SELECT c.CountryName,r.RiverName    FROM CountriesRivers AS cr
+	 JOIN Countries AS c ON
+		cr.CountryCode=c.CountryCode
+	JOIN Rivers AS r ON
+		r.Id=cr.RiverId
+	
+	ORDER BY c.CountryName) AS cn
 
 
+--TASK 16
+
+SELECT c.CountryName, MAX(r.Length)AS LongestRiverLength ,MAX(p.Elevation) AS HighestPeakEvaluation FROM CountriesRivers AS cr
+JOIN Rivers AS r ON
+cr.RiverId=r.Id
+RIGHT JOIN Countries AS c ON
+cr.CountryCode= c.CountryCode
+ LEFT JOIN MountainsCountries AS mc ON
+c.CountryCode=mc.CountryCode
+ JOIN Mountains AS m ON
+mc.MountainId=m.Id
+ JOIN Peaks AS p ON
+m.Id=p.MountainId
+GROUP BY(c.CountryName)
+ORDER BY HighestPeakEvaluation DESC ,LongestRiverLength DESC, c.CountryName

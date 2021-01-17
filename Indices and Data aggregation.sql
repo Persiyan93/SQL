@@ -104,3 +104,18 @@ HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 --TASK 17
 SELECT COUNT(*) AS COUNT FROM Employees
 WHERE ManagerID IS NULL
+
+--TASK 18 
+SELECT DepartmentID ,Salary FROM (
+SELECT *,ROW_NUMBER () OVER (PARTITION BY DepartmentId ORDER BY Salary DESC) AS s FROM Employees) AS OrderEmployees
+WHERE OrderEmployees.s =3
+
+-- TASK 19
+
+SELECT TOP(10) FirstName,LastName,e.DepartmentID FROM Employees   AS e
+JOIN 
+(SELECT DepartmentID ,AVG(Salary) AS AverageSalary FROM Employees
+GROUP BY DepartmentID ) AS s
+ON e.DepartmentID=s.DepartmentID
+WHERE e.Salary>s.AverageSalary
+ORDER BY DepartmentID

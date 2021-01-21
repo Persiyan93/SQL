@@ -1,23 +1,26 @@
 CREATE DATABASE Bank
 GO
+
 USE Bank
 GO
+
 CREATE TABLE AccountHolders
 (
-Id INT NOT NULL,
-FirstName VARCHAR(50) NOT NULL,
-LastName VARCHAR(50) NOT NULL,
-SSN CHAR(10) NOT NULL
-CONSTRAINT PK_AccountHolders PRIMARY KEY (Id)
+    Id INT NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    SSN CHAR(10) NOT NULL,
+    IsDeleted bit NOT NULL DEFAULT 0,
+    CONSTRAINT PK_AccountHolders PRIMARY KEY (Id)
 )
 
 CREATE TABLE Accounts
 (
-Id INT NOT NULL,
-AccountHolderId INT NOT NULL,
-Balance MONEY DEFAULT 0
-CONSTRAINT PK_Accounts PRIMARY KEY (Id)
-CONSTRAINT FK_Accounts_AccountHolders FOREIGN KEY (AccountHolderId) REFERENCES AccountHolders(Id)
+    Id INT NOT NULL,
+    AccountHolderId INT NOT NULL,
+    Balance MONEY DEFAULT 0
+    CONSTRAINT PK_Accounts PRIMARY KEY (Id)
+    CONSTRAINT FK_Accounts_AccountHolders FOREIGN KEY (AccountHolderId) REFERENCES AccountHolders(Id)
 )
 
 INSERT INTO AccountHolders (Id, FirstName, LastName, SSN) VALUES (1, 'Susan', 'Cane', '1234567890');

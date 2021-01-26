@@ -50,6 +50,7 @@ AS
 	BEGIN TRANSACTION
 	IF @moneyAmount<0 
 		BEGIN
+		THROW 51001 ,'Money amount should be positive number ',1
 		ROLLBACK ;
 		RETURN;
 	END
@@ -59,4 +60,55 @@ AS
 COMMIT
 GO
 
-EXECUTE usp_DepositMoney 5,10
+--TASK 4
+CREATE OR ALTER PROC usp_WithdrawMoney(@accountId INT,@moneyAmount DECIMAL(20,4))
+AS
+
+	IF @moneyAmount<0
+	BEGIN
+		THROW 51001 ,'Money amount should be positive number ',1
+	
+	END
+	UPDATE Accounts 
+		SET Balance= CONVERT(DECIMAL(20,4),(Balance-@moneyAmount))
+		WHERE Id=@accountId
+
+GO
+EXECUTE usp_WithdrawMoney 5 ,10
+--TASK 5
+CREATE OR ALTER PROC usp_TransferMoney(@senderId INT,@receiverId INT,@amount DECIMAL(20,4))
+AS
+ BEGIN TRANSACTION
+	BEGIN TRY 
+	EXECUTE usp_WithdrawMoney @senderId,@amount
+	EXECUTE usp_DepositMoney @receiverId , @amount
+	END TRY
+	BEGIN CATCH
+	ROLLBACK ;
+	THROW 5501,'Invalid input!Please check your input!',2
+	RETURN;
+	END CATCH
+	COMMIT
+GO
+EXECUTE usp_TransferMoney 12,11 ,-1000
+
+--TASK 6
+
+
+CREATE OR ALTER  TRIGGER tr_BuyItemsRestriction
+ON UserGameItems INSTEAD OF  INSERT
+AS
+	INSERT INTO UserGameItems (ItemId,UserGameId)
+	SELECT i.ItemId,i.UserGameId  FROM inserted AS i
+		JOIN UsersGames AS u ON
+		i.UserGameId=u.UserId
+		JOIN Items AS it ON
+		i.ItemId=it.Id
+		WHERE it.MinLevel<=u.Level
+
+GO
+
+INSERT INTO UserGameItems (ItemId,UserGameId)
+VALUES (1,7 )
+
+

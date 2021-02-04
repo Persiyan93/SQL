@@ -1,0 +1,41 @@
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.exe
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.deps.json
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.runtimeconfig.json
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.runtimeconfig.dev.json
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Introduction to DB.pdb
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.csprojAssemblyReference.cache
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.csproj.CopyComplete
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.dll
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.pdb
+D:\Work\SQL\SQL\Entity framework\Introduction to DB\Introduction to DB\obj\Debug\netcoreapp3.1\Introduction to DB.genruntimeconfig.cache

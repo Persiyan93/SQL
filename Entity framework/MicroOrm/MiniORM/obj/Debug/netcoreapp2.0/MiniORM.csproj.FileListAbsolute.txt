@@ -1,0 +1,9 @@
+D:\Work\SQL\SQL\Entity framework\MiniORM\bin\Debug\netcoreapp2.0\MiniORM.deps.json
+D:\Work\SQL\SQL\Entity framework\MiniORM\bin\Debug\netcoreapp2.0\MiniORM.dll
+D:\Work\SQL\SQL\Entity framework\MiniORM\bin\Debug\netcoreapp2.0\MiniORM.pdb
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.csprojAssemblyReference.cache
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.dll
+D:\Work\SQL\SQL\Entity framework\MiniORM\obj\Debug\netcoreapp2.0\MiniORM.pdb

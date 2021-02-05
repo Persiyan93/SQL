@@ -29,7 +29,7 @@ ORDER BY [Name]
 
 --Task 7
 SELECT * FROM Towns
-WHERE [Name] LIKE '[^MKBE]%'
+WHERE [Name] LIKE '[^RBD]%'
 ORDER BY [Name];
 
 
@@ -48,16 +48,11 @@ WHERE LEN(LastName)=5
 SELECT [EmployeeID]
       ,[FirstName]
       ,[LastName]
-      ,[MiddleName]
-      ,[JobTitle]
-      ,[DepartmentID]
-      ,[ManagerID]
-      ,[HireDate]
-      ,[Salary]
-      ,[AddressID]
-	  ,DENSE_RANK() OVER( PARTITION BY Salary ORDER BY EmployeeID) AS Rank
-  FROM [SoftUni].[dbo].[Employees]
-  WHERE Salary>10000 AND Salary<50000 
+		,[Salary]
+      ,DENSE_RANK() OVER( PARTITION BY Salary ORDER BY  EmployeeID   ) AS Rank
+  FROM Employees
+  WHERE Salary>=10000 AND Salary<=50000 
+  ORDER BY Salary DESC 
  
  
 
@@ -66,39 +61,33 @@ SELECT [EmployeeID]
 (SELECT [EmployeeID]
       ,[FirstName]
       ,[LastName]
-      ,[MiddleName]
-      ,[JobTitle]
-      ,[DepartmentID]
-      ,[ManagerID]
-      ,[HireDate]
       ,[Salary]
-      ,[AddressID]
-	  ,DENSE_RANK() OVER( PARTITION BY Salary ORDER BY EmployeeID) AS Rank
-  FROM [SoftUni].[dbo].[Employees]
-  WHERE Salary>10000 AND Salary<50000 ) AS b
+   ,DENSE_RANK() OVER( PARTITION BY Salary ORDER BY EmployeeID) AS Rank
+  FROM Employees
+  WHERE Salary>=10000 AND Salary<=50000 ) AS b
 	WHERE Rank=2
 	ORDER BY Salary DESC 
 
 --Task 12 
-SELECT [CountryName] , IsoCode FROM Countries
-WHERE LEN(CountryName)-LEN(REPLACE(CountryName,'A',''))=3
+SELECT [CountryName] AS [Country Name] , IsoCode AS [ISO Code ] FROM Countries
+WHERE LEN(CountryName)-LEN(REPLACE(CountryName,'A',''))>=3
 ORDER BY IsoCode
 	
 --Task 13
-SELECT  p.PeakName ,r.RiverName,LOWER(CONCAT(p.PeakName,r.RiverName)) AS MIX FROM  Peaks AS p
+SELECT  p.PeakName ,r.RiverName,LOWER(CONCAT(LEFT(p.PeakName,LEN(p.PeakName)-1),r.RiverName)) AS MIX FROM  Peaks AS p
 CROSS JOIN  Rivers AS r
 WHERE SUBSTRING(p.PeakName,LEN(p.PeakNAme),1)=LEFT(r.RiverName,1)
-ORDER BY p.PeakName
+ORDER BY MIX
 
 
  --TASK 14
- SELECT TOP(50) [Name] ,FORMAT(Start,'yyyy-MM--dd') FROM Games
- WHERE DATEPART(YEAR,Start)>=2011 AND DATEPART(YEAR,Start)<=2012 
+ SELECT TOP(50) [Name] ,FORMAT(Start,'yyyy-MM-dd') AS Start FROM Games
+ WHERE DATEPART(YEAR,Start)=2011 OR DATEPART(YEAR,Start)=2012 
  ORDER BY Start ,Name
 
 
  --TASK 15
- SELECT [UserName],Email ,SUBSTRING(Email,(CHARINDEX('@',Email)+1),LEN(Email))AS [Email Provider] 
+ SELECT [UserName] ,SUBSTRING(Email,(CHARINDEX('@',Email)+1),LEN(Email))AS [Email Provider] 
  FROM Users
  ORDER BY [Email Provider] ,Username
 
@@ -108,16 +97,29 @@ ORDER BY p.PeakName
  ORDER BY Username
 
  --TASK 17
- BEGIN
-SELECT (SELECT IF g.Duration<=3 
-PRINT 'OK ' ;)
-FROM Games AS g
+
+SELECT Name AS Game,
+	CASE 
+		WHEN DATEPART(hour,Start)>=0 AND DATEPART(hour,Start)<12 THEN 'Morning'
+		WHEN DATEPART(hour,Start)>=12 AND DATEPART(hour,Start)<18 THEN 'Afternoon'
+		WHEN DATEPART(hour,Start)>=18 AND DATEPART(hour,Start)<24 THEN 'Evening'
+	END AS [Part of the Day],
+	CASE
+		WHEN Duration <=3 THEN 'Extra Short'
+		WHEN Duration >= 4   AND Duration<=6 THEN 'Short'
+		WHEN Duration >6   THEN 'Long'
+		ELSE 'Extra Long'
+	END AS Duration
+
+FROM Games 
+ORDER BY Name,Duration,[Part of the Day]
   
 
-
+		
 --TASK 18
 SELECT ProductName ,
-DATEADD(DAY,3,OrderDate) AS [Pay Due],
-DATEADD(MONTH,1,OrderDate) AS [Deliver Due]
+		OrderDate,
+		DATEADD(DAY,3,OrderDate) AS [Pay Due],
+		DATEADD(MONTH,1,OrderDate) AS [Deliver Due]
 FROM Orders
  

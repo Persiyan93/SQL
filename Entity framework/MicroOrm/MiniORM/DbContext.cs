@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
 using System.Linq;
 using System.Reflection;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiniORM
 {
@@ -67,7 +69,15 @@ namespace MiniORM
 
                 var navigationProperty = entityType.GetProperty(navigationPropertyName);
 
-                var navigationDbSet=this.dbsetProperties[navigationProperty.PropertyType].
+                var navigationDbSet = this.dbsetProperties[navigationProperty.PropertyType].GetValue(this);
+
+                var navigationPrimaryKey = navigationProperty.PropertyType
+                    .GetProperties()
+                    .First(pr => pr.HasAttribute<KeyAttribute>());
+                foreach (var entity in dbSet)
+                {
+
+                }
             }
 
         }

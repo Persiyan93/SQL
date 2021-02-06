@@ -30,6 +30,48 @@ namespace MiniORM
             }
         }
 
+        private void MapAllRelations()
+        {
+            foreach (var dbSetPropery in this.dbsetProperties)
+            {
+                var dbSetType = dbSetPropery.Key;
+                var mapRelationsGeneric = typeof(DbContext)
+                    .GetMethod("MapRelations", BindingFlags.Instance | BindingFlags.NonPublic)
+                    .MakeGenericMethod(dbSetType);
+                var dbSet = dbSetPropery.Value.GetValue(this);
+                mapRelationsGeneric.Invoke(this, new[] { dbSet });
+
+            }
+
+        }
+
+        private void MapRelations<T>(T dbSet)
+            where T : class, new()
+        {
+            var entityType = typeof(T);
+
+            
+
+        }
+        
+        private void MapNavigationProperties<T>(DbSet<T> dbSet)
+            where T:class,new()
+        {
+            var entityType = typeof(T);
+            var foreignKeys = entityType.GetProperties()
+                .Where(pr => pr.HasAttribute<ForeignKeyAttribute>())
+                .ToArray();
+            foreach (var foreignKey in foreignKeys)
+            {
+                var navigationPropertyName = foreignKey.GetCustomAttribute<ForeignKeyAttribute>().Name;
+
+                var navigationProperty = entityType.GetProperty(navigationPropertyName);
+
+                var navigationDbSet=this.dbsetProperties[navigationProperty.PropertyType].
+            }
+
+        }
+
         private Dictionary<Type,PropertyInfo> DiscoverDbSets()
         {
             var dbSets = this.GetType().GetProperties()

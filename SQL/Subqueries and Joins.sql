@@ -14,7 +14,7 @@ ORDER By FirstName ,LastName
 
 
 --TASK 3
-SELECT * FROM Employees AS e
+SELECT e.EmployeeID,e.FirstName,e.LastName,'Sales' AS [DepartmentName] FROM Employees AS e
 WHERE e.DepartmentID IN
 (SELECT DepartmentID FROM Departments AS d
   WHERE d.Name='Sales' )
@@ -50,13 +50,14 @@ WHERE e.DepartmentID IN
 	WHERE  p.StartDate >CAST('2002-08-13' AS smalldatetime) AND p.EndDate is NULL 
 	ORDER BY e.EmployeeID
 
---TASK 8   !!!!!!!!!!!!!!!!!!!!!
+--TASK 8   
 
- SELECT  e.EmployeeID , e.FirstName ,
-	CASE
-		WHEN DATEPART(YEAR,p.StartDate)>=2005 THEN NULL
-		ELSE p.Name END AS [ProjectName	]
- FROM Employees AS e
+ SELECT  e.EmployeeID , e.FirstName ,p.StartDate,
+  CASE 
+	WHEN DATEPART(YEAR,p.StartDate)>=2005 THEN NULL
+	ELSE p.Name
+	END AS [ProjectName]
+FROM Employees AS e
 	JOIN  EmployeesProjects AS ep ON
 		e.EmployeeID = ep.EmployeeID
 	JOIN Projects AS p ON
@@ -116,6 +117,19 @@ SELECT TOP(5) c.CountryName,r.RiverName   FROM Countries AS c
 		WHERE c.ContinentCode='AF'
 	ORDER BY c.CountryName 
 
+
+
+
+--TASK 15
+
+SELECT  ContinentCode,CurrencyCode,CurrencyUsage FROM 
+(SELECT ContinentCode ,CurrencyCode ,COUNT(CurrencyCode) AS CurrencyUsage,
+	DENSE_RANK() OVER (PARTITION BY ContinentCode ORDER BY COUNT(CurrencyCode)DESC) AS Rank
+
+FROM Countries
+GROUP BY ContinentCode,CurrencyCode) AS temp
+WHERE Rank=1 AND CurrencyUsage>1
+
 --TASK 16
 SELECT COUNT(*) FROM  Countries AS c
 	LEFT OUTER JOIN  MountainsCountries AS mc ON
@@ -136,3 +150,24 @@ mc.MountainId=m.Id
 m.Id=p.MountainId
 GROUP BY(c.CountryName)
 ORDER BY HighestPeakEvaluation DESC ,LongestRiverLength DESC, c.CountryName
+
+--TASK 18
+SELECT TOP (5)  CountryName ,
+		ISNULL(temp.PeakName,'(no highest peak)') , 
+		ISNULL(temp.Elevation,0) ,
+		ISNULL(temp.MountainRange,'(no mountain)') FROM
+(SELECT  c.CountryName,p.PeakName ,p.Elevation ,m.MountainRange,
+		DENSE_RANK () OVER (PARTITION BY CountryName ORDER BY Elevation DESC) AS [myRank]
+		FROM Countries AS c
+	LEFT JOIN MountainsCountries AS mc ON
+	c.CountryCode = mc.CountryCode
+	LEFT JOIN Mountains AS m ON
+	mc.MountainId=m.Id
+	LEFT JOIN Peaks AS p ON
+	m.Id=p.MountainId) AS temp
+	WHERE temp.myRank=1
+	ORDER BY CountryName,PeakName
+
+
+
+

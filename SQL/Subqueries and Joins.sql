@@ -89,8 +89,8 @@ SELECT MIN(a.AverageSalary) AS MinAverageSalary FROM
 
 --TASK 12
 
-SELECT c.CountryCode AS CountryCode ,m.MountainRange AS  MountainRange,
-p.Elevation  FROM Peaks as p
+SELECT c.CountryCode AS CountryCode ,m.MountainRange AS  MountainRange,PeakName,
+p.Elevation AS Elevation   FROM Peaks as p
 	JOIN Mountains AS m ON 
 		p.MountainId=m.Id
 	JOIN MountainsCountries AS c ON
@@ -106,20 +106,24 @@ WHERE c.CountryCode='BG' OR c.CountryCode='RU' OR  c.CountryCode='US'
 GROUP BY (c.CountryCode)
 ORDER BY MountainRanges DESC
 
---TASK 14!!!!!!!!!!!!!!!!!!!!!1
-SELECT TOP(5) cn.     FROM(
-SELECT c.CountryName,r.RiverName    FROM CountriesRivers AS cr
-	 JOIN Countries AS c ON
-		cr.CountryCode=c.CountryCode
-	JOIN Rivers AS r ON
-		r.Id=cr.RiverId
-	
-	ORDER BY c.CountryName) AS cn
+--TASK 14
 
+SELECT TOP(5) c.CountryName,r.RiverName   FROM Countries AS c
+	 LEFT OUTER JOIN CountriesRivers AS cr ON
+		c.CountryCode=cr.CountryCode
+	LEFT OUTER JOIN Rivers AS r ON
+		r.Id=cr.RiverId
+		WHERE c.ContinentCode='AF'
+	ORDER BY c.CountryName 
 
 --TASK 16
+SELECT COUNT(*) FROM  Countries AS c
+	LEFT OUTER JOIN  MountainsCountries AS mc ON
+	c.CountryCode=mc.CountryCode
+	WHERE mc.MountainId IS NULL
+--TASK 17
 
-SELECT c.CountryName, MAX(r.Length)AS LongestRiverLength ,MAX(p.Elevation) AS HighestPeakEvaluation FROM CountriesRivers AS cr
+SELECT TOP(5) c.CountryName, MAX(p.Elevation) AS HighestPeakEvaluation,MAX(r.Length)AS LongestRiverLength FROM CountriesRivers AS cr
 JOIN Rivers AS r ON
 cr.RiverId=r.Id
 RIGHT JOIN Countries AS c ON

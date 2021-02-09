@@ -1,10 +1,11 @@
 --TASK 1
-CREATE PROC usp_GetEmployeesSalaryAbove35000
-AS
-	SELECT FirstName,LastName FROM Employees as e 
-	WHERE Salary>35000
+	CREATE PROC usp_GetEmployeesSalaryAbove35000
+	AS
+		BEGIN
+		SELECT FirstName,LastName FROM Employees as e 
+		WHERE Salary>35000
 
-GO
+		END
 
 
 
@@ -12,32 +13,35 @@ GO
 CREATE PROC usp_GetEmployeesSalaryAboveNumber
 (@number DECIMAL(18,4))
 AS
-SELECT FirstName,LastName FROM Employees 
-WHERE Salary>=@number
+	BEGIN
+	SELECT FirstName,LastName FROM Employees 
+	WHERE Salary>=@number
 
-GO
+	END
 
 --TASK 3
 CREATE PROC usp_GetTownsStartingWith 
 (@string NVARCHAR(50))
 AS 
-SELECT * FROM Towns
-WHERE Name LIKE(@string+'%')
+	BEGIN
+	SELECT [Name] FROM Towns
+	WHERE Name LIKE(@string+'%')
+	END
 
-GO
 
 --TASK 4
 CREATE PROC usp_GetEmployeesFromTown
 (@townName NVARCHAR(50))
 AS
-SELECT FirstName,LastName FROM Employees as e
-JOIN Addresses AS  a
-ON e.AddressID=a.AddressID
-JOIN Towns AS t
-ON a.TownID=t.TownID
-WHERE t.Name =@townName
+BEGIN
+	SELECT FirstName,LastName FROM Employees as e
+	JOIN Addresses AS  a
+	ON e.AddressID=a.AddressID
+	JOIN Towns AS t
+	ON a.TownID=t.TownID
+	WHERE t.Name =@townName
 
-GO
+END
 
 --TASK 5
 CREATE OR ALTER FUNCTION udf_GetSalaryLevel
@@ -60,24 +64,36 @@ END
 CREATE OR ALTER PROC usp_EmployeesBySalaryLevel
 (@salaryLevel NVARCHAR(10))
 AS 
-
-SELECT FirstName,LastName FROM Employees
-WHERE dbo.udf_GetSalaryLevel(Salary)= @salaryLevel
-
-
-GO
-
---TASK 7 !!!!!!!!!!!!!!
-CREATE FUNCTION udf_IsWordComprised 
-(@setOfLetters NVARCHAR (20),@word NVARCHAR(50) )
-RETURNS NVARCHA(5)
-AS
 BEGIN
-IF @word LIKE  ('[%s]' @setOfLetters)
-	
+	SELECT FirstName,LastName FROM Employees
+	WHERE dbo.udf_GetSalaryLevel(Salary)= @salaryLevel
+
+
 END
 
+--TASK 7 
+CREATE FUNCTION udf_IsWordComprised 
+(@setOfLetters NVARCHAR (20),@word NVARCHAR(50) )
+RETURNS BIT
+AS
+BEGIN
+ DECLARE @count AS INT =1;
+ WHILE(@count<LEN(@word))
+	BEGIN
+	DECLARE @currentLetter AS VARCHAR(1)
+	SET @currentLetter =  SUBSTRING(@word,@count,1)
+	IF(CHARINDEX(@currentLetter,@setOfLetters)=0)
+		BEGIN
+		RETURN 0
+		 END
+	SET @count+=1;
+	END
+	RETURN 1
+	
+END 
 
+SELECT 
+[dbo].[udf_IsWordComprised] ('abcdf','ggg')
 
 
 

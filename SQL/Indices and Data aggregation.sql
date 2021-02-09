@@ -11,7 +11,7 @@ FROM WizzardDeposits
 GROUP BY (DepositGroup)
 
 --TASK 4 
-SELECT TOP 2	  DepositGroup
+SELECT TOP (2)	  DepositGroup
 FROM WizzardDeposits 
 GROUP BY (DepositGroup)
 ORDER BY AVG(MagicWandSize)
@@ -64,13 +64,16 @@ SELECT FirstLetter FROM
 	ORDER BY FirstLetter
 
 --TASK 11
+
 SELECT DepositGroup ,IsDepositExpired,AVG(DepositInterest) AS AverageInterest FROM WizzardDeposits
-WHERE DepositExpirationDate>'1985-01-01'
+WHERE DepositStartDate>'1985-01-01'
 GROUP BY DepositGroup ,IsDepositExpired 
 ORDER BY DepositGroup DESC,IsDepositExpired
 
 --TASK 12
-
+SELECT SUM(host.DepositAmount-Guest.DepositAmount) FROM WizzardDeposits AS host
+JOIN WizzardDeposits AS Guest ON
+	host.id+1=Guest.Id
 
 --TASK 13
 SELECT DepartmentID ,SUM(Salary) AS TotalSalary FROM Employees
@@ -106,9 +109,12 @@ SELECT COUNT(*) AS COUNT FROM Employees
 WHERE ManagerID IS NULL
 
 --TASK 18 
-SELECT DepartmentID ,Salary FROM (
-SELECT *,ROW_NUMBER () OVER (PARTITION BY DepartmentId ORDER BY Salary DESC) AS s FROM Employees) AS OrderEmployees
-WHERE OrderEmployees.s =3
+SELECT DISTINCT  DepartmentID ,Salary  FROM (
+	SELECT *,
+	DENSE_RANK() OVER (PARTITION BY DepartmentId ORDER BY Salary DESC) AS s 
+	FROM Employees) AS OrderEmployees
+WHERE OrderEmployees.s = 3
+
 
 -- TASK 19
 

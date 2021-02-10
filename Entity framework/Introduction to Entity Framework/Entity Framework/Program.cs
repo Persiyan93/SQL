@@ -84,8 +84,10 @@ namespace Entity_Framework
         {
             var resultString = new StringBuilder();
             
-            var employees = context.EmployeesProjects
-                .Where(x => x.Project.StartDate.Year >= 2001 && x.Project.StartDate.Year <= 2003)
+            var employees = context.Employees
+                .Any(x=>x.EmployeesProjects)
+                
+                (x => x.Project.StartDate.Year >= 2001 && x.Project.StartDate.Year <= 2003)
                 
                 .Select(x => new { x.Employee.FirstName, x.Employee.LastName, ManagerFirstName = x.Employee.Manager.FirstName, managerLastName = x.Employee.Manager.LastName })
                 .Distinct()

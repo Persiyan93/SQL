@@ -44,7 +44,7 @@ BEGIN
 END
 
 --TASK 5
-CREATE OR ALTER FUNCTION udf_GetSalaryLevel
+CREATE  FUNCTION udf_GetSalaryLevel
 (@salary DECIMAL(18,4))
 RETURNS NVARCHAR(30)
 AS
@@ -61,47 +61,46 @@ END
 
 
 --TASK 6
-CREATE OR ALTER PROC usp_EmployeesBySalaryLevel
+CREATE PROC usp_EmployeesBySalaryLevel
 (@salaryLevel NVARCHAR(10))
 AS 
 BEGIN
 	SELECT FirstName,LastName FROM Employees
-	WHERE dbo.udf_GetSalaryLevel(Salary)= @salaryLevel
+	WHERE dbo.ufn_GetSalaryLevel(Salary)= @salaryLevel
 
 
 END
 
 --TASK 7 
-CREATE FUNCTION udf_IsWordComprised 
-(@setOfLetters NVARCHAR (20),@word NVARCHAR(50) )
+CREATE FUNCTION dbo.ufn_IsWordComprised
+(@setOfLetters NVARCHAR (MAX),@word NVARCHAR(MAX) )
 RETURNS BIT
 AS
 BEGIN
- DECLARE @count AS INT =1;
- WHILE(@count<LEN(@word))
-	BEGIN
-	DECLARE @currentLetter AS VARCHAR(1)
-	SET @currentLetter =  SUBSTRING(@word,@count,1)
-	IF(CHARINDEX(@currentLetter,@setOfLetters)=0)
+	DECLARE @count AS INT = 1;
+	 WHILE(@count<=LEN(@word))
 		BEGIN
-		RETURN 0
-		 END
-	SET @count+=1;
-	END
+			DECLARE @currentLetter AS VARCHAR(1)
+			SET @currentLetter =  SUBSTRING(@word,@count,1)
+			IF(CHARINDEX(@currentLetter,@setOfLetters)=0)
+				BEGIN
+				RETURN 0
+				 END
+			SET @count+=1;
+		END
 	RETURN 1
-	
 END 
 
-SELECT 
-[dbo].[udf_IsWordComprised] ('abcdf','ggg')
 
 
 
 
---TASK 8 !!!!!!!!!!!
-CREATE OR ALTER PROC usp_EmployeesBySalaryLevel
+
+--TASK 8 
+CREATE PROCEDURE  dbo.usp_DeleteEmployeesFromDepartment
 (@departmentId INT)
 AS
+	BEGIN
 	ALTER TABLE Departments 
 	ALTER COLUMN ManagerID  INT NULL 
 
@@ -115,7 +114,7 @@ AS
 	WHERE DepartmentID=@departmentId
 
 
-GO
+END
 
 --TASK 9
 CREATE PROC usp_GetHoldersFullName
@@ -129,18 +128,22 @@ GO
 
 --TASK 10
 CREATE PROC  usp_GetHoldersWithBalanceHigherThan
-(@number INT)
+(@number DECIMAL(25,5))
 AS
-SELECT h.FirstName,h.LastName FROM Accounts AS a
-JOIN AccountHolders AS h
-ON a.AccountHolderId=h.Id
-WHERE a.Balance>@number
-ORDER BY FirstName,LastName
+BEGIN
 
-GO
+	SELECT h.FirstName,h.LastName FROM Accounts AS a
+	JOIN AccountHolders AS h
+	ON a.AccountHolderId=h.Id
+	GROUP BY a.AccountHolderId,h.FirstName,h.LastName
+	HAVING CONVERT(DECIMAL(25,5),SUM(Balance))>@number
+	ORDER BY FirstName,LastName
+END
+
+
 
 --TASK 11
-CREATE OR ALTER FUNCTION ufn_CalculateFutureValue
+CREATE  FUNCTION ufn_CalculateFutureValue
 (@sum DECIMAL(10,5),@yeareRate FLOAT ,@numberOfYears INT)
 RETURNS DECIMAL(10,4)
 AS
@@ -148,18 +151,22 @@ BEGIN
 
 WHILE (@numberOfYears>0)
 BEGIN
-SET @sum = @sum + (@yeareRate * @sum);
-SET @numberOfYears=@numberOfYears-1;
+	SET @sum = @sum + (@yeareRate * @sum);
+	SET @numberOfYears=@numberOfYears-1;
 
 END
 RETURN @sum
 END
 
+SELECT dbo.ufn_CalculateFutureValue(1000,0.1,5)
+
 --TASK 12
-CREATE OR ALTER PROC usp_CalculateFutureValueForAccount
+CREATE PROC usp_CalculateFutureValueForAccount
 (@accountId INT, @interestRate FLOAT)
 AS
+BEGIN
 SELECT 
+		h.Id,
 		h.FirstName,
 		h.LastName,
 		a.Balance,
@@ -169,36 +176,37 @@ SELECT
 	JOIN AccountHolders as h
 	ON a.AccountHolderId=h.Id
 	WHERE  a.Id=@accountId
-GO
+END
 
 
 --TASK 13
 
-CREATE OR ALTER FUNCTION ufn_CashInUserGames
+CREATE  FUNCTION dbo.ufn_CashInUsersGames
 (@gameName NVARCHAR(50))
 RETURNS @result TABLE(
-SumCash DECIMAL(20,5)
+SumCash money
 )
 AS
 BEGIN
 
-WITH MyCte AS(
-SELECT Name ,ROW_NUMBER () OVER ( ORDER BY Cash DESC  ) AS RowOrder,Cash
-	FROM 
-	(SELECT g.Name,u.Cash FROM 
-	UsersGames AS u
-	JOIN Games AS g
-	ON u.GameId=g.Id
-	WHERE g.Name=@gameName)   AS [Tepm]
+WITH MyCte(Cash,Row) AS(
+	SELECT ug.Cash, ROW_NUMBER() OVER (PARTITION  BY GameId ORDER BY Cash DESC ) AS Row FROM UsersGames AS ug
+	JOIN Games AS g ON
+	ug.GameId=g.Id
+	WHERE Name LIKE (@gameName)
 	)
 
 
 INSERT INTO @result (SumCash) SELECT SUM(Cash) FROM MyCte
-	WHERE RowOrder%2!=0
+	WHERE Row%2!=0
 RETURN 
 
 END 
 
+SELECT * FROM ufn_CashInUsersGames ('Shruikan')
 
-
+SELECT * ,ROW_NUMBER() OVER (PARTITION  BY GameId ORDER BY Cash DESC )FROM UsersGames AS ug
+JOIN Games AS g ON
+ug.GameId=g.Id
+WHERE Name LIKE('Love%')
 

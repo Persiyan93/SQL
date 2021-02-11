@@ -1,0 +1,69 @@
+CREATE TABLE Vendors(
+VendorId INT PRIMARY KEY IDENTITY(1,1),
+Name VARCHAR(50)
+)
+
+CREATE TABLE Parts(
+PartId INT PRIMARY KEY IDENTITY(1,1),
+SerialNumber VARCHAR(50) UNIQUE,
+[Description] VARCHAR(250) NOT NULL,
+Price Money,  
+VendorId INT REFERENCES Vendors(VendorId),
+StockQty INT DEFAULT 0
+CONSTRAINT ck_CheckMoneyValue CHECK(Price >0) ,
+CONSTRAINT ck_StockQtyValueMustBePositive CHECK(Price >0) 
+)
+CREATE TABLE Clients(
+ClientId INT PRIMARY KEY IDENTITY(1,1),
+FirstName VARCHAR(50) UNIQUE,
+LastName VARCHAR(50) UNIQUE,
+Phone NVARCHAR(255) 
+)
+
+CREATE TABLE Mechanics(
+MechanicId INT PRIMARY KEY IDENTITY(1,1),
+FirstName VARCHAR(50) UNIQUE,
+LastName VARCHAR(50) UNIQUE,
+Address NCHAR(12) 
+
+)
+CREATE TABLE Models(
+ModellId INT PRIMARY KEY IDENTITY(1,1),
+NAME NVARCHAR(50) UNIQUE,
+Quantity INT DEFAULT 1
+)
+
+CREATE TABLE Jobs(
+JobId INT PRIMARY KEY IDENTITY(1,1),
+ModellId INT REFERENCES  Models(ModellId),
+Status NVARCHAR(11) DEFAULT 'Pending',
+ClientId INT REFERENCES Clients(ClientId),
+MechanicId INT REFERENCES Mechanics(MechanicId),
+IssueDate DATETIME,
+FinishDate DATETIME NOT NULL,
+
+CONSTRAINT ck_AllowValues CHECK(Status IN ('Pendin','Progress','Finished')) 
+
+
+)
+
+CREATE TABLE Orders(
+OrderId INT PRIMARY KEY IDENTITY(1,1),
+JobId INT REFERENCES Jobs(JobId),
+IssueDate DATETIME NOT NULL,
+Delivered  BIT NOT NULL DEFAULT 0
+)
+CREATE TABLE OrderParts(
+OrderId INT REFERENCES Orders(OrderId),
+PartId INT REFERENCES Parts(PartId),
+Quantity INT DEFAULT 1 
+PRIMARY KEY(OrderId,PartId)
+)
+CREATE TABLE PartsNeeded(
+JobId INT REFERENCES Jobs(JobId),
+PartId INT REFERENCES Parts(PartId),
+Quantity INT DEFAULT 1 
+PRIMARY KEY(OrderId,PartId)
+)
+
+

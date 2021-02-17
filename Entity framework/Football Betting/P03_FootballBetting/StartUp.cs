@@ -6,7 +6,7 @@ namespace P03_FootballBetting
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }

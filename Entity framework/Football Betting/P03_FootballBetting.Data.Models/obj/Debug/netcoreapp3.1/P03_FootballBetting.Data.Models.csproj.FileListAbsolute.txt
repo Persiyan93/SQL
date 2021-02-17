@@ -1,0 +1,9 @@
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\bin\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.deps.json
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\bin\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\bin\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.pdb
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.csprojAssemblyReference.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting.Data.Models\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.pdb

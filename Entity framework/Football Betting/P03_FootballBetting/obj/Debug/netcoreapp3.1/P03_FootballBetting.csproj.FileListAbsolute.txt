@@ -1,0 +1,13 @@
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.exe
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.deps.json
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.runtimeconfig.json
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.runtimeconfig.dev.json
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.dll
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\bin\Debug\netcoreapp3.1\P03_FootballBetting.pdb
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.csprojAssemblyReference.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.dll
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.pdb
+D:\Work\SQL\SQL\Entity framework\Football Betting\P03_FootballBetting\obj\Debug\netcoreapp3.1\P03_FootballBetting.genruntimeconfig.cache

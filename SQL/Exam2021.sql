@@ -139,3 +139,8 @@ WHERE  Name  LIKE('%.'+@fileExtension)
 
 
 END
+
+SELECT * FROM RepositoriesContributors
+WHERE RepositoryId=2
+GROUP BY ContributorId
+HAVING ContributorId=3

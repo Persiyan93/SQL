@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entity_Relations
+namespace P01_StudentSystem.Data.Models
 {
-    class Class1
+    class Resource
     {
     }
 }

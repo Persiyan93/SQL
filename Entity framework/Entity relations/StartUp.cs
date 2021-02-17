@@ -2,7 +2,7 @@
 
 namespace Entity_Relations
 {
-    class Program
+    class StartUp
     {
         static void Main(string[] args)
         {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entity_Relations
+namespace P01_StudentSystem.Data.Models.Enumeration
 {
-    class Students
+    class Class1
     {
     }
 }

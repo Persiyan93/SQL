@@ -1,0 +1,4 @@
+C:\Users\persi\source\repos\Football Betting\P03_FootballBetting.Data\bin\Debug\netcoreapp3.1\P03_FootballBetting.Data.Models.dll
+C:\Users\persi\source\repos\Football Betting\P03_FootballBetting.Data\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.AssemblyInfoInputs.cache
+C:\Users\persi\source\repos\Football Betting\P03_FootballBetting.Data\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.AssemblyInfo.cs
+C:\Users\persi\source\repos\Football Betting\P03_FootballBetting.Data\obj\Debug\netcoreapp3.1\P03_FootballBetting.Data.csprojAssemblyReference.cache

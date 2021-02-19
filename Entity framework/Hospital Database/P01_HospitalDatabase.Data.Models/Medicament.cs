@@ -8,11 +8,17 @@ namespace P01_HospitalDatabase.Data.Models
 {
     public class Medicament
     {
-        
+        public Medicament()
+        {
+            this.Prescriptions = new HashSet<PatientMedicament>();
+        }
+        [Key]
+        [Required]
         public int MedicamentId { get; set; }
         [Required]
         [Column(TypeName ="NVARCHAR(50)")]
+        [MaxLength(50)]
         public string Name { get; set; }
-        public ICollection<PatientMedicament> Prescriptions { get; set; }
+        public virtual ICollection<PatientMedicament> Prescriptions { get; set; }
     }
 }

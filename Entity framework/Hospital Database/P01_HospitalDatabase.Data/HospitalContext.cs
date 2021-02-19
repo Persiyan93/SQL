@@ -26,6 +26,16 @@ namespace P01_HospitalDatabase.Data
         }
 
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Diagnose> Diagnoses { get; set; }
+        public DbSet<Medicament> Medicaments { get; set; }
+        public DbSet<PatientMedicament> PatientMedicaments { get; set; }
+
+        public DbSet<Visitation> Visitations { get; set; }
+    
+
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +45,7 @@ namespace P01_HospitalDatabase.Data
                     .WithMany(p => p.Visitations)
                     .HasForeignKey(v => v.PatientId);
 
+                
             });
 
             modelBuilder.Entity<Diagnose>(entity => {
@@ -42,7 +53,7 @@ namespace P01_HospitalDatabase.Data
                 entity
                     .HasOne(d => d.Patient)
                     .WithMany(p => p.Diagnoses)
-                    .HasForeignKey(d => d.ParientId);
+                    .HasForeignKey(d => d.PatientId);
             
             });
 
@@ -62,6 +73,9 @@ namespace P01_HospitalDatabase.Data
                     .HasForeignKey(x => x.MedicamentId);
 
             });
+
+
+           
            
         }
     }

@@ -14,28 +14,36 @@ namespace P01_HospitalDatabase.Data.Models
             this.Prescriptions = new HashSet<PatientMedicament>();
 
         }
+
+        [Key]
+        [Required]
         public int PatientId { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR(50)")]
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR(50)")]
-        public string Lastname { get; set; }
+        [MaxLength(50)]
+        public string LastName { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR(250)")]
+        [MaxLength(250)]
         public string Address { get; set; }
 
         [Required]
         [Column(TypeName = "VARCHAR(80)")]
+        [MaxLength(80)]
         public string Email { get; set; }
 
+        [Required]
         public bool HasInsurance { get; set; }
 
-        public ICollection<Visitation> Visitations { get; set; }
-        public ICollection<Diagnose> Diagnoses { get; set; }
-        public ICollection<PatientMedicament> Prescriptions {get;set;}
+        public virtual ICollection<Visitation> Visitations { get; set; }
+        public virtual ICollection<Diagnose> Diagnoses { get; set; }
+        public virtual ICollection<PatientMedicament> Prescriptions {get;set;}
     }
 }

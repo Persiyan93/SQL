@@ -1,0 +1,9 @@
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\bin\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.deps.json
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\bin\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\bin\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.pdb
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.csprojAssemblyReference.cache
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Hospital Database\P01_HospitalDatabase.Data.Models\obj\Debug\netcoreapp3.1\P01_HospitalDatabase.Data.Models.pdb

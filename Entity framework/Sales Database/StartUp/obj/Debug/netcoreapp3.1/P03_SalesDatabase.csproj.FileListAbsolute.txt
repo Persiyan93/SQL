@@ -1,0 +1,12 @@
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.exe
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.deps.json
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.runtimeconfig.json
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.runtimeconfig.dev.json
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.dll
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\bin\Debug\netcoreapp3.1\P03_SalesDatabase.pdb
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.dll
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.pdb
+D:\Work\SQL\SQL\Entity framework\Sales Database\StartUp\obj\Debug\netcoreapp3.1\P03_SalesDatabase.genruntimeconfig.cache

@@ -1,0 +1,9 @@
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\bin\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.deps.json
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\bin\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\bin\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.pdb
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.AssemblyInfoInputs.cache
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.AssemblyInfo.cs
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.csproj.CoreCompileInputs.cache
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.dll
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.pdb
+D:\Work\SQL\SQL\Entity framework\Sales Database\P03_SalesDatabase.Data.Models\obj\Debug\netcoreapp3.1\P03_SalesDatabase.Data.Models.csprojAssemblyReference.cache

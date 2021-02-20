@@ -31,7 +31,8 @@ namespace P01_HospitalDatabase.Data
         public DbSet<PatientMedicament> PatientMedicaments { get; set; }
 
         public DbSet<Visitation> Visitations { get; set; }
-    
+        public DbSet<Doctor> Doctor { get; set; }
+
 
 
 
@@ -44,6 +45,11 @@ namespace P01_HospitalDatabase.Data
                     .HasOne(v => v.Patient)
                     .WithMany(p => p.Visitations)
                     .HasForeignKey(v => v.PatientId);
+
+                entity
+                    .HasOne(x => x.Doctor)
+                    .WithMany(d => d.Visitations)
+                    .HasForeignKey(x => x.DoctorId);
 
                 
             });
@@ -73,6 +79,8 @@ namespace P01_HospitalDatabase.Data
                     .HasForeignKey(x => x.MedicamentId);
 
             });
+
+            
 
 
            

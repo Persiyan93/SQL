@@ -1,4 +1,0 @@
-D:\Work\SQL\SQL\Entity framework\P01_StudentSystem.Data\bin\Debug\netcoreapp3.1\P01_StudentSystem.Data.Models.dll
-D:\Work\SQL\SQL\Entity framework\P01_StudentSystem.Data\obj\Debug\netcoreapp3.1\P01_StudentSystem.Data.csprojAssemblyReference.cache
-D:\Work\SQL\SQL\Entity framework\P01_StudentSystem.Data\obj\Debug\netcoreapp3.1\P01_StudentSystem.Data.AssemblyInfoInputs.cache
-D:\Work\SQL\SQL\Entity framework\P01_StudentSystem.Data\obj\Debug\netcoreapp3.1\P01_StudentSystem.Data.AssemblyInfo.cs

@@ -61,6 +61,15 @@ namespace P03_SalesDatabase.Data
 
 
             });
+
+            modelBuilder.Entity<Sale>(entity =>
+            {
+                entity
+                    .Property(x => x.Date)
+                    .HasDefaultValueSql("GETDATE()");
+
+            });
+           
         }
     }
 }

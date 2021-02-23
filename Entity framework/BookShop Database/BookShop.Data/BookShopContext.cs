@@ -24,7 +24,7 @@ namespace BookShop.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=BookShop;IntegratedSecurity=true;");
+                optionsBuilder.UseSqlServer("Server=.;Database=BookShop;Integrated Security=true;");
             }
           
         }
@@ -46,6 +46,16 @@ namespace BookShop.Data
                     .WithMany(c => c.BookCategories)
                     .HasForeignKey(x => x.CategoryId);
 
+
+            });
+
+            modelBuilder.Entity<Book>(entity =>
+            {
+                entity.Property(x => x.AgeRestriction)
+                    .HasConversion<string>();
+
+                entity.Property(x => x.EditionType)
+                    .HasConversion<string>();
 
             });
         }

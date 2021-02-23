@@ -4,8 +4,8 @@ namespace BookShop.Models.Enums
 {
     public enum EditionType
     {
-        Normal
-        ,Promo
-        ,Gold
+        Normal=1
+        ,Promo=2
+        ,Gold=3
     }
 }

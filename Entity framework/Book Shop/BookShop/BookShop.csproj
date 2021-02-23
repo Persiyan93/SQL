@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookShop.Data\BookShop.Data.csproj" />
+    <ProjectReference Include="..\BookShop.Initializer\BookShop.Initializer.csproj" />
+    <ProjectReference Include="..\BookShop.Models\BookShop.Models.csproj" />
   </ItemGroup>
 
 </Project>

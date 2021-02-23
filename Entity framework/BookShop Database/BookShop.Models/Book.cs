@@ -28,9 +28,9 @@ namespace BookShop.Models
 
         public decimal Price { get; set; }
 
-        public EditionType EditionType { get; set; }
+        public virtual EditionType EditionType { get; set; }
 
-        public AgeRestriction AgeRestriction { get; set; }
+        public virtual AgeRestriction AgeRestriction { get; set; }
 
         public int AuthorId { get; set; }
         public Author Author { get; set; }

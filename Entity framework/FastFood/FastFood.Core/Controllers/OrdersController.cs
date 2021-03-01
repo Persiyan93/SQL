@@ -39,7 +39,12 @@
                 return RedirectToAction("Error", "Home");
             }
             var order = mapper.Map<Order>(model);
+            var orderItem = mapper.Map<OrderItem>(model);
+            orderItem.Order = order;
+         
             this.context.Orders.Add(order);
+            this.context.OrderItems.Add(orderItem);
+
             this.context.SaveChanges();
 
 

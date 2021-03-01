@@ -22,13 +22,20 @@
 
         public IActionResult Create()
         {
+            var vieworders = this.context.Items
+                 .Select(x => new CreateOrderViewModel { ItemId = x.Id, ItemName = x.Name })
+                 .ToList();
             var viewOrder = new CreateOrderViewModel
             {
                 Items = this.context.Items.Select(x => x.Id).ToList(),
                 Employees = this.context.Employees.Select(x => x.Id).ToList(),
+                ItemNames = this.context.Items.Select(x => x.Name).ToList(),
+                EmploeyeNames=this.context.Employees.Select
             };
+            var ordersViewModels=this.context.ProjectTo<>
+            var orderViewModel = mapper.Map<CreateOrderViewModel>()
 
-            return this.View(viewOrder);
+            return this.View(orderViewModel);
         }
 
         [HttpPost]

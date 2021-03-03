@@ -13,7 +13,7 @@ namespace ProductShop
         public static void Main(string[] args)
         {
             var context = new ProductShopContext();
-            string inputjason = File.ReadAllText(@"D:\Work\SQL\SQL\Entity framework\ProductShop\Datasets\categories-products.json");
+            string inputjason = File.ReadAllText(@"");
             // Console.WriteLine(ImportCategoryProducts(context, inputjason));
             GetUsersWithProducts(context);
 

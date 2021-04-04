@@ -17,16 +17,16 @@ namespace CarDealer
     {
         public static void Main(string[] args)
         {
-            RemoveDublicateParts();
+          
 
 
-            //var context = new CarDealerContext();
-            //var xml = File.ReadAllText(@"D:\Work\SQL\SQL\Entity framework\CarDeale\CarDealer\Datasets\cars.xml");
+            var context = new CarDealerContext();
+            var xml = File.ReadAllText(@"D:\Work\SQL\SQL\Entity framework\CarDeale\CarDealer\bin\Debug\netcoreapp2.1\cars.xml");
 
-            //Console.WriteLine(ImportCars(context, xml));
+            Console.WriteLine(ImportCars(context, xml));
         }
 
-        private static void RemoveDublicateParts()
+        private static void RemoveDuplicateParts()
         {
             var xmldoc = XDocument.Load(@"D:\Work\SQL\SQL\Entity framework\CarDeale\CarDealer\Datasets\cars.xml");
             var cars = xmldoc.Root.Elements();
@@ -80,6 +80,13 @@ namespace CarDealer
 
         public static string ImportCars(CarDealerContext context, string inputXml)
         {
+            var serializer = new XmlSerializer(typeof(Car[]), new XmlRootAttribute("Cars"));
+            var cars = (Car[])serializer.Deserialize(new StringReader(inputXml));
+
+            foreach (var car in cars)
+            {
+                Co
+            }
             return null;
         }
 

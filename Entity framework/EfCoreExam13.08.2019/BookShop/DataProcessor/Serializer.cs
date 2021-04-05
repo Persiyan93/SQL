@@ -69,6 +69,7 @@
 
             using (StringWriter textWriter = new StringWriter())
             {
+                
                 serializer.Serialize(textWriter, books,namespaces);
                 return textWriter.ToString();
             }
